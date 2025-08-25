@@ -1,0 +1,75 @@
+### Get all states
+GET https://lexi-dcdrc-api.onrender.com/states
+
+### Get commissions for a state (replace STATE_ID)
+GET https://lexi-dcdrc-api.onrender.com/commissions/1
+
+### Search cases by case number
+POST https://lexi-dcdrc-api.onrender.com/cases/by-case-number
+Content-Type: application/json
+
+{
+  "state": "KARNATAKA",
+  "commission": "Bangalore 1st & Rural Additional",
+  "search_value": "123/2025"
+}
+
+### Search cases by complainant
+POST https://lexi-dcdrc-api.onrender.com/cases/by-complainant
+Content-Type: application/json
+
+{
+  "state": "KARNATAKA",
+  "commission": "Bangalore 1st & Rural Additional",
+  "search_value": "Reddy"
+}
+
+### Search cases by respondent
+POST https://lexi-dcdrc-api.onrender.com/cases/by-respondent
+Content-Type: application/json
+
+{
+  "state": "KARNATAKA",
+  "commission": "Bangalore 1st & Rural Additional",
+  "search_value": "XYZ Ltd."
+}
+
+### Search cases by complainant advocate
+POST https://lexi-dcdrc-api.onrender.com/cases/by-complainant-advocate
+Content-Type: application/json
+
+{
+  "state": "KARNATAKA",
+  "commission": "Bangalore 1st & Rural Additional",
+  "search_value": "Adv. Mehta"
+}
+
+### Search cases by respondent advocate
+POST https://lexi-dcdrc-api.onrender.com/cases/by-respondent-advocate
+Content-Type: application/json
+
+{
+  "state": "KARNATAKA",
+  "commission": "Bangalore 1st & Rural Additional",
+  "search_value": "Adv. Sharma"
+}
+
+### Search cases by industry type
+POST https://lexi-dcdrc-api.onrender.com/cases/by-industry-type
+Content-Type: application/json
+
+{
+  "state": "KARNATAKA",
+  "commission": "Bangalore 1st & Rural Additional",
+  "search_value": "Banking"
+}
+
+### Search cases by judge
+POST https://lexi-dcdrc-api.onrender.com/cases/by-judge
+Content-Type: application/json
+
+{
+  "state": "KARNATAKA",
+  "commission": "Bangalore 1st & Rural Additional",
+  "search_value": "Justice Kumar"
+}
