@@ -1,13 +1,15 @@
-
-````markdown
+```markdown
 # Lexi DCDRC API (Take-Home Assignment)
 
 This project is a **FastAPI backend** built for the Lexi Take-Home assignment.  
-It simulates querying **District Consumer Courts (DCDRC)** case data from the Jagriti portal.  
+It queries **District Consumer Courts (DCDRC)** case data from the Jagriti portal.
+
+> ⚠️ Currently, it can operate in **mock mode** for testing. Live integration with e-Jagriti endpoints is implemented.
 
 ---
 
 ## 🚀 Features
+
 - REST API built with **FastAPI**
 - Endpoints to search cases by:
   - Case number
@@ -20,21 +22,44 @@ It simulates querying **District Consumer Courts (DCDRC)** case data from the Ja
 - Additional endpoints:
   - `/states` → List all states with IDs
   - `/commissions/{state_id}` → List commissions for a given state
-- Returns **mock case data** (can be extended to real Jagriti integration)
+- Returns **mock or live case data** (configurable)
 - Fully documented with **Swagger UI** (`/docs`)
 
 ---
 
 ## 🛠 Tech Stack
+
 - Python 3.11+
 - FastAPI
 - Uvicorn
+- Requests (for live data fetching)
+
+---
+
+## 📁 Project Structure
+```
+
+lexi-dcdrc-api/
+│
+├─ app/
+│ ├─ main.py # FastAPI app and routes
+│ ├─ models.py # Pydantic models for request/response
+│ └─ services/
+│ └─ jagriti_client.py # Fetches live data from Jagriti portal
+│
+├─ .venv/ # Python virtual environment
+├─ requirements.txt
+├─ run.bat # Windows script to run the app
+└─ README.md
+
+````
 
 ---
 
 ## 📦 Installation & Run Locally
 
 Clone the repo:
+
 ```bash
 git clone https://github.com/kishan-kumar-dev/lexi-dcdrc-api.git
 cd lexi-dcdrc-api
@@ -44,8 +69,9 @@ Create a virtual environment (optional but recommended):
 
 ```bash
 python -m venv venv
-source venv/bin/activate   # on Linux/Mac
-venv\Scripts\activate      # on Windows
+# Activate venv
+source venv/bin/activate   # Linux/Mac
+venv\Scripts\activate      # Windows
 ```
 
 Install dependencies:
@@ -57,10 +83,11 @@ pip install -r requirements.txt
 Run the server:
 
 ```bash
-uvicorn main:app --reload --port 8000
+uvicorn app.main:app --reload --port 8000
 ```
 
 Open in browser:
+
 👉 [http://localhost:8000/docs](http://localhost:8000/docs)
 
 ---
@@ -118,5 +145,26 @@ curl -X POST "http://localhost:8000/cases/by-complainant-advocate" \
 
 ---
 
+## ⚙️ Notes
 
+- Switch between **mock data** and **live Jagriti data** by configuring `app/services/jagriti_client.py`.
+- Live data integration requires the e-Jagriti endpoints to be accessible.
+- `/docs` shows interactive Swagger API documentation.
 
+---
+
+## 🤝 Contributing
+
+1. Fork the repo
+2. Create a branch: `git checkout -b feature-name`
+3. Commit your changes: `git commit -m "Description"`
+4. Push to branch: `git push origin feature-name`
+5. Open a Pull Request
+
+---
+
+## 📜 License
+
+MIT License
+
+```
