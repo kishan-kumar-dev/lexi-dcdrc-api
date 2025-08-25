@@ -2,3 +2,13 @@ fastapi==0.115.0
 uvicorn==0.30.6
 pydantic==1.10.12
 requests==2.31.0
+starlette<0.39.0,>=0.37.2
+anyio<5,>=3.4.0
+typing-extensions>=4.8.0
+click>=7.0
+h11>=0.8
+charset-normalizer<4,>=2
+idna<4,>=2.5
+urllib3<3,>=1.21.1
+certifi>=2017.4.17
+sniffio>=1.1
